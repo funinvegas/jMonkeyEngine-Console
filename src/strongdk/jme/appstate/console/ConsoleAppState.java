@@ -950,8 +950,10 @@ public class ConsoleAppState implements AppState {
                         }
                         blinkCount = 0;
                   }
-                  //If there is anything in the scrolling text queue lets show it.
-                  appendConsoleNotThreadSafe(enqScrollingText.poll());
+            }
+            //If there is anything in the scrolling text queue lets show it.
+            while (!enqScrollingText.isEmpty()) {
+                appendConsoleNotThreadSafe(enqScrollingText.poll());
             }
       }
 
